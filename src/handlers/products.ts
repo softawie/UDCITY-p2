@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import { products, productsStore } from '../../models/products'
+import { products, productsStore } from '../models/products'
 
 const store = new productsStore()
 
@@ -11,7 +11,7 @@ const index = async (_req: Request, res: Response) => {
 const show = async (req: Request, res: Response) => {
   const product = await store.show(req.body.id)
   res.json(product)
-}
+
 
 const create = async (req: Request, res: Response) => {
   try {
@@ -40,4 +40,6 @@ const productRoutes = (app: express.Application) => {
   app.delete('/products', destroy)
 }
 
-export default productRoutes
+  export default productRoutes;
+
+

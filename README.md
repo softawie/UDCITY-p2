@@ -2,11 +2,17 @@
 
 ## Getting Started
 
-# for geting source `git clone //link`
+# 1 for geting source `git clone //link`
 
-# for setup dependecies and dev `yarn`
+# 2 for setup dependecies and dev `yarn`
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
+
+# 3 build .env file as ecample in ENV_EXCAMPLE file
+
+# 4 install migration : `db-migrate up`
+
+# 5 run the project with comman : `yarn start`
 
 ## Required Technologies
 
