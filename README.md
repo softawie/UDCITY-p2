@@ -8,13 +8,32 @@
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
 
-# 3 build .env file as ecample in ENV_EXCAMPLE file
+# 3-0 build .env file as example in ENV_EXCAMPLE file
 
-# 4 install migration : `db-migrate up`
+POSTGRES_HOST=127.0.0.1
+POSTGRES_DB=mystores
+POSTGRES_TEST_DB=mystores
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+
+server port 3000
+
+# 3-1 create data base then connect it using commands
+
+open psql: `psql postgres`
+create a new database: `CREATE DATABASE mystores;`
+connect to a database: `\c mystores`
+
+# 4 install migration :
+
+for create migration use command :
+` npx db-migrate create [name] --sql-file`
+for migration up `db-migrate up`
+ofr migration down `db-migrate down`
 
 # 5 run the project with comman : `yarn start`
 
-## Required Technologies
+## Used Technologies
 
 Your application must make use of the following libraries:
 

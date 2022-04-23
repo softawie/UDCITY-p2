@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS products (name VARCHAR(100), price INT , id SERIAL PRIMARY KEY );

@@ -1,3 +1,3 @@
-// export { default as productRoutes } from './products'
-// export { default as orderRoutes } from './orders'
-// export { default as userRoutes } from './user'
+export { default as productRoutes } from './productRoutes'
+export { default as orderRoutes } from './orderRoutes'
+export { default as userRoutes } from './userRoutes'

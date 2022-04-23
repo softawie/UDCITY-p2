@@ -1,10 +1,10 @@
 import supertest from 'supertest'
-import { Weapon, MythicalWeaponStore } from '../models/products'
+import {  Product ,ProductStore } from '../models/products'
 
 // create a request object
 // const request = supertest(app)
 
-const store = new MythicalWeaponStore()
+const store = new ProductStore()
 
 describe('Test endpoint response', () => {
   // it('test hello world endpoint', async () => {
