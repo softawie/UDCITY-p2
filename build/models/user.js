@@ -18,7 +18,7 @@ class UserStore {
     async index() {
         try {
             const conn = await database_1.default.connect();
-            const sql = 'Select * Form users';
+            const sql = 'Select * FROM users';
             const result = await conn.query(sql);
             conn.release();
             return result.rows;
@@ -44,7 +44,7 @@ class UserStore {
         try {
             // @ts-ignore
             const conn = await database_1.default.connect();
-            const sql = 'INSERT INTO users (first-name,last-name,password_digest) VALUES($1, $2) RETURNING *';
+            const sql = 'INSERT INTO users (first_name,last_name,passwor_digest) VALUES($1, $2) RETURNING *';
             const hash = bcrypt_1.default.hashSync(
             //@ts-ignore
             u.password + PEPPER, parseInt(SALT_ROUNDS));

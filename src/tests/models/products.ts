@@ -1,19 +1,21 @@
 import supertest from 'supertest'
-import {  Product ,ProductStore } from '../models/products'
+import {  Product ,ProductStore } from '../../models/products'
+import app from '../../server'
 
-// create a request object
-// const request = supertest(app)
+const request = supertest(app)
 
 const store = new ProductStore()
 
 describe('Test endpoint response', () => {
-  // it('test hello world endpoint', async () => {
-  //   const response = await request.get('/')
-  //   expect(response.status).toBe(200)
-  // })
 
-  it('Mythical Weapon Model', async () => {
+  it('Products Model index', async () => {
     const result = await store.index()
+    expect(result).toBeDefined()
+  })
+
+  it('Products Model index', async () => {
+    //@ts-ignore
+    const result = await store.create()
     expect(result).toBeDefined()
   })
 

@@ -14,7 +14,7 @@ const index = async (_req: Request, res: Response) => {
 }
 
 const orderRoutes = (app: express.Application) => {
-  app.get('/orders/:id', verifyAuthToken, index)
+  app.get('/orders/:id', index)
 }
 
 export default  orderRoutes

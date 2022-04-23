@@ -1,4 +1,3 @@
-
 // #### User
 // - id
 // - firstName
@@ -18,10 +17,16 @@ dotenv.config()
 const { PEPPER, SALT_ROUNDS } = process.env;
 
 export class UserStore {
+  [x: string]:
+  // - id
+  // - firstName
+  // - lastName
+  // - password
+  any
     async index(): Promise<User[]> {
       try {
         const conn = await Client.connect()
-        const sql = 'Select * Form users'
+        const sql = 'Select * FROM users'
         const result = await conn.query(sql)
         conn.release()
         return result.rows
@@ -50,7 +55,7 @@ async create(u: User): Promise<User> {
     try {
       // @ts-ignore
       const conn = await Client.connect()
-      const sql = 'INSERT INTO users (first-name,last-name,password_digest) VALUES($1, $2) RETURNING *'
+      const sql = 'INSERT INTO users (first_name,last_name,passwor_digest) VALUES($1, $2) RETURNING *'
       const hash = bcrypt.hashSync(
              //@ts-ignore
         u.password + PEPPER,parseInt(SALT_ROUNDS)

@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "start": "yarn build && nodemon src/server.ts",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./build --onSuccess \"node ./build/server.js\"",
     "build": "tsc",
     "test": "tsc && ENV=test db-migrate --env test up && jasmine-ts && db-migrate --env test down",
     "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'",

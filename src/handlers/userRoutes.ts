@@ -1,5 +1,4 @@
 
-
 // #### Users
 // - Index [token required]
 // - Show [token required]
@@ -8,7 +7,11 @@ import express, { Request, Response } from 'express'
 import {  User , UserStore} from '../models/user'
 import jwt from 'jsonwebtoken'
 import verifyAuthToken from './AuthToken'
+import dotenv from 'dotenv'
 
+dotenv.config()
+
+const { TOKEN_SECERT } = process.env
 const store = new UserStore()
 
 const index = async (_req: Request, res: Response) => {
@@ -32,6 +35,8 @@ const index = async (_req: Request, res: Response) => {
       }
     
       const newUser = await store.create(user)
+      //@ts-ignore
+      const token = jwt.sign({ user: newUser }, TOKEN_SECERT as string);
       res.json(newUser)
     } catch (err) {
       res.status(400)
@@ -39,12 +44,11 @@ const index = async (_req: Request, res: Response) => {
     }
   }
   
-  
 
 const userRoutes = (app: express.Application) => {
-    app.get('/users', index)
-    app.get('/users/:id', show)
-    app.post('/users', verifyAuthToken, create)
+    app.get('/users',verifyAuthToken, index)
+    app.get('/users/:id',verifyAuthToken, show)
+    app.post('/users', create)
 }
 
 export default userRoutes;

@@ -15,7 +15,7 @@ class OrderStore {
     async index() {
         try {
             const conn = await database_1.default.connect();
-            const sql = 'Select * Form orders';
+            const sql = 'Select * FROM orders';
             const result = await conn.query(sql);
             conn.release();
             return result.rows;

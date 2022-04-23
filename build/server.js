@@ -17,9 +17,9 @@ app.get('/', function (req, res) {
 // @ts-ignore
 (0, handlers_1.productRoutes)(app);
 // @ts-ignore
-// orderRoutes(app)
-// // @ts-ignore
-// userRoutes(app)
+(0, handlers_1.orderRoutes)(app);
+// @ts-ignore
+(0, handlers_1.userRoutes)(app);
 app.listen(3000, function () {
     console.log(`starting app on: ${address}`);
 });

@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import  {productRoutes,orderRoutes} from './handlers'
+import  {productRoutes,orderRoutes,userRoutes} from './handlers'
 
 
 const app: express.Application = express()
@@ -13,15 +13,13 @@ app.use(bodyParser.json())
 app.get('/', function (req: Request, res: Response) {
   res.send('Hello My Store!')
 })
-// @ts-ignore
 
+// @ts-ignore
 productRoutes(app)
 // @ts-ignore
-
-// orderRoutes(app)
-// // @ts-ignore
-
-// userRoutes(app)
+orderRoutes(app)
+// @ts-ignore
+userRoutes(app)
 
 app.listen(3000, function () {
   console.log(`starting app on: ${address}`)
